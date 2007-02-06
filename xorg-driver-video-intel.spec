@@ -69,6 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING README
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/*.so
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
 %{_mandir}/man4/intel.4*
