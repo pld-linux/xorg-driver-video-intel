@@ -26,6 +26,7 @@ BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
 Requires:	xorg-xserver-server >= 1.0.99.901
 Obsoletes:	xorg-driver-video-i810
+Provides:	xorg-driver-video-i810
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
