@@ -1,5 +1,5 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
-Summary(pl):	Sterownik obrazu X.org dla zintegrowanych uk³adów graficznych Intela
+Summary(pl.UTF-8):   Sterownik obrazu X.org dla zintegrowanych ukÅ‚adÃ³w graficznych Intela
 Name:		xorg-driver-video-intel
 %define	snap	20070206
 Version:	1.7.2
@@ -34,9 +34,9 @@ X.org video driver for Intel integrated graphics chipsets. It supports
 the intel, intel-DC100, intele, i815, 830M, 845G, 852GM, 855GM, 865G,
 915G, 915GM, 945G, 945GM, 965G, 965Q and 946GZ chipsets.
 
-%description -l pl
-Sterownik obrazu X.org dla zintegrowanych uk³adów graficznych Intela.
-Obs³uguje uk³ady intel, intel-DC100, intele, i815, 830M, 845G, 852GM,
+%description -l pl.UTF-8
+Sterownik obrazu X.org dla zintegrowanych ukÅ‚adÃ³w graficznych Intela.
+ObsÅ‚uguje ukÅ‚ady intel, intel-DC100, intele, i815, 830M, 845G, 852GM,
 855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q i 946GZ.
 
 %prep
