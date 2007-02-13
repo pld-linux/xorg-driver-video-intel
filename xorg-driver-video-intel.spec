@@ -1,14 +1,14 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-%define	snap	20070206
+%define	snap	20070213
 Version:	1.7.2
 Release:	0.%{snap}.1
 License:	MIT
 Group:		X11/Applications
 # Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
-Source0:	xf86-video-intel-20070206.tar.gz
-# Source0-md5:	d88a20c27d10358be1b6310e3aea61ad
+Source0:	xf86-video-intel-%{snap}.tar.gz
+# Source0-md5:	0fbb09932ac02fea49a0ae69b87293c3
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
