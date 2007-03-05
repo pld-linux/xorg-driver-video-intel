@@ -1,19 +1,17 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-%define	snap	20070213
-Version:	1.7.2
-Release:	0.%{snap}.1
+Version:	1.9.91
+Release:	1
 License:	MIT
 Group:		X11/Applications
-# Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
-Source0:	xf86-video-intel-%{snap}.tar.gz
-# Source0-md5:	0fbb09932ac02fea49a0ae69b87293c3
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
+# Source0-md5:	a29358e73936dd531ba19c5556be9ebd
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	libdrm-devel >= 2.0
+BuildRequires:	libdrm-devel >= 2.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXvMC-devel
@@ -23,8 +21,8 @@ BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.2
-BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
-Requires:	xorg-xserver-server >= 1.0.99.901
+BuildRequires:	xorg-xserver-server-devel >= 1.2.99.901
+Requires:	xorg-xserver-server >= 1.2.99.901
 Obsoletes:	xorg-driver-video-i810
 Provides:	xorg-driver-video-i810
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,7 +38,7 @@ Obsługuje układy intel, intel-DC100, intele, i815, 830M, 845G, 852GM,
 855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q i 946GZ.
 
 %prep
-%setup -q -n xf86-video-intel
+%setup -q -n xf86-video-intel-%{version}
 
 %build
 %{__libtoolize}
