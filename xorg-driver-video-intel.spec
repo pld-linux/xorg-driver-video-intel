@@ -23,18 +23,18 @@ BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.2.99.902
 Requires:	xorg-xserver-server >= 1.2.99.902
-Obsoletes:	xorg-driver-video-i810
 Provides:	xorg-driver-video-i810
+Obsoletes:	xorg-driver-video-i810
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 X.org video driver for Intel integrated graphics chipsets. It supports
-the intel, intel-DC100, intele, i815, 830M, 845G, 852GM, 855GM, 865G,
+the i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM, 865G,
 915G, 915GM, 945G, 945GM, 965G, 965Q and 946GZ chipsets.
 
 %description -l pl.UTF-8
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
-Obsługuje układy intel, intel-DC100, intele, i815, 830M, 845G, 852GM,
+Obsługuje układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM,
 855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q i 946GZ.
 
 %prep
