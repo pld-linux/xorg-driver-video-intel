@@ -1,12 +1,12 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.0.0
+Version:	2.1.0
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
-# Source0-md5:	269dd43f0a414d032fea1599a73b5b77
+# Source0-md5:	a564a1fbb7ed9fcbcf81e15aedc92578
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
@@ -14,12 +14,15 @@ BuildRequires:	automake
 BuildRequires:	libdrm-devel >= 2.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
+# for intel_reg_dumper (which is only noinst)
+#BuildRequires:	xorg-lib-libpciaccess-devel >= 0.5.0
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xf86driproto-devel
+BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.3.0.0
 Requires:	xorg-xserver-server >= 1.3.0.0
@@ -33,12 +36,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 X.org video driver for Intel integrated graphics chipsets. It supports
 the i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM, 865G,
-915G, 915GM, 945G, 945GM, 965G, 965Q and 946GZ chipsets.
+915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33, Q33
+and Q35 chipsets.
 
 %description -l pl.UTF-8
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
 Obsługuje układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM,
-855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q i 946GZ.
+855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM,
+945GME, G33, Q33 i Q35.
 
 %prep
 %setup -q -n xf86-video-intel-%{version}
