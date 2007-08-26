@@ -77,6 +77,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING README
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/*.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/ch7017.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/ch7xxx.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/ivch.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/sil164.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/tfp410.so
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
-%{_mandir}/man4/*.4*
+%{_mandir}/man4/intel.4*
+%{_mandir}/man4/i810.4*
