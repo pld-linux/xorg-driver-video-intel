@@ -1,12 +1,12 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.2.0.90
+Version:	2.2.1
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
-# Source0-md5:	783c6d67dbebaea4a46ae78665f47a2c
+# Source0-md5:	3334dc5142871b78fc609fd1b3dac3f2
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
@@ -67,8 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/xorg/modules/*/*.la \
-	$RPM_BUILD_ROOT%{_libdir}/libI810XvMC.la
+rm $RPM_BUILD_ROOT%{_libdir}/xorg/modules/*/*.la \
+	$RPM_BUILD_ROOT%{_libdir}/libI810XvMC.{la,so}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
