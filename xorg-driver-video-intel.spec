@@ -1,12 +1,12 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.2.1
+Version:	2.2.99.901
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
-# Source0-md5:	3334dc5142871b78fc609fd1b3dac3f2
+# Source0-md5:	0ef9cba695fdfa50002894f863f4a60c
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
@@ -68,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm $RPM_BUILD_ROOT%{_libdir}/xorg/modules/*/*.la \
-	$RPM_BUILD_ROOT%{_libdir}/libI810XvMC.{la,so}
+	$RPM_BUILD_ROOT%{_libdir}/lib*XvMC.{la,so}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/ivch.so
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/sil164.so
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/tfp410.so
-%attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
-%ghost %attr(755,root,root) %{_libdir}/libI810XvMC.so.?
+%attr(755,root,root) %{_libdir}/lib*XvMC.so.*.*.*
+%ghost %attr(755,root,root) %{_libdir}/lib*XvMC.so.?
 %{_mandir}/man4/intel.4*
 %{_mandir}/man4/i810.4*
