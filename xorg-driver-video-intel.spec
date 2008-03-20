@@ -12,10 +12,11 @@ BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libdrm-devel >= 2.3
+# for DRI_MM
+#BuildRequires:	libdrm-devel >= 2.3.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
-# for intel_reg_dumper (which is only noinst)
-#BuildRequires:	xorg-lib-libpciaccess-devel >= 0.5.0
+BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
@@ -23,7 +24,7 @@ BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-util-util-macros >= 1.1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.3.0.0
 BuildRequires:  rpmbuild(macros) >= 1.389
 %requires_xorg_xserver_videodrv
@@ -86,7 +87,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/ivch.so
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/sil164.so
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/tfp410.so
-%attr(755,root,root) %{_libdir}/lib*XvMC.so.*.*.*
-%ghost %attr(755,root,root) %{_libdir}/lib*XvMC.so.?
+%attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
+%ghost %attr(755,root,root) %{_libdir}/libI810XvMC.so.1
+%attr(755,root,root) %{_libdir}/libIntelXvMC.so.*.*.*
+%ghost %attr(755,root,root) %{_libdir}/libIntelXvMC.so.1
 %{_mandir}/man4/intel.4*
 %{_mandir}/man4/i810.4*
