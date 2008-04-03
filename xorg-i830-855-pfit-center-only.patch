@@ -1,0 +1,90 @@
+diff --git a/src/i830_lvds.c b/src/i830_lvds.c
+index 33b4f26..32598af 100644
+--- a/src/i830_lvds.c
++++ b/src/i830_lvds.c
+@@ -542,23 +542,22 @@ i830_lvds_mode_fixup(xf86OutputPtr output, DisplayModePtr mode,
+     adjusted_mode->Clock = dev_priv->panel_fixed_mode->Clock;
+     xf86SetModeCrtc(adjusted_mode, INTERLACE_HALVE_V);
+ 
++    /* Make sure pre-965s set dither correctly */
++    if (!IS_I965G(pI830) && dev_priv->panel_wants_dither)
++	pfit_control |= PANEL_8TO6_DITHER_ENABLE;
++
+     /* Native modes don't need fitting */
+     if (adjusted_mode->HDisplay == mode->HDisplay &&
+ 	adjusted_mode->VDisplay == mode->VDisplay) {
+-	pfit_control = 0;
+ 	pfit_pgm_ratios = 0;
+ 	border = 0;
+ 	goto out;
+     }
+ 
+-    /* Basic panel fitting options */
+-    if (!IS_I965G(pI830)) {
+-	if (dev_priv->panel_wants_dither)
+-	    pfit_control |= PANEL_8TO6_DITHER_ENABLE;
+-    } else {
++    /* 965+ wants fuzzy fitting */
++    if (IS_I965G(pI830))
+ 	pfit_control |= (intel_crtc->pipe << PFIT_PIPE_SHIFT) |
+ 	    PFIT_FILTER_FUZZY;
+-    }
+ 
+     /*
+      * Deal with panel fitting options.  Figure out how to stretch the image
+@@ -742,7 +741,6 @@ i830_lvds_prepare(xf86OutputPtr output)
+ 
+     lvds = INREG(LVDS);
+ 
+-    i830_lvds_dpms(output, DPMSModeOff);
+     /*
+      * ->prepare will be called after the CRTC is off but before
+      * we set the mode, so program the PFIT regs here.
+@@ -751,6 +749,8 @@ i830_lvds_prepare(xf86OutputPtr output)
+ 	OUTREG(LVDS, lvds | LVDS_BORDER_ENABLE);
+     else
+ 	OUTREG(LVDS, lvds & (~LVDS_BORDER_ENABLE));
++
++    i830_lvds_dpms(output, DPMSModeOff);
+ }
+ 
+ static void
+@@ -767,8 +767,6 @@ i830_lvds_mode_set(xf86OutputPtr output, DisplayModePtr mode,
+      */
+     OUTREG(PFIT_PGM_RATIOS, dev_priv->pfit_pgm_ratios);
+     OUTREG(PFIT_CONTROL, dev_priv->pfit_control);
+-    /* It's harmless to turn on the LVDS if it's already on */
+-    i830_lvds_dpms(output, DPMSModeOn);
+ }
+ 
+ /**
+@@ -860,7 +858,7 @@ static Atom backlight_control_atom;
+ static Atom backlight_control_name_atoms[NUM_BACKLIGHT_CONTROL_METHODS];
+ 
+ #define PANEL_FITTING_NAME "PANEL_FITTING"
+-#define NUM_PANEL_FITTING_TYPES 3
++#define NUM_PANEL_FITTING_TYPES 3 /* pre-9xx only has one */
+ static char *panel_fitting_names[] = {
+     "center",
+     "full_aspect",
+@@ -1113,9 +1111,16 @@ i830_lvds_set_property(xf86OutputPtr output, Atom property,
+ 	memcpy(&atom, value->data, 4);
+ 	name = NameForAtom(atom);
+ 	
+-	ret = i830_panel_fitting_lookup(name);
+-	if (ret < 0)
+-	    return FALSE;
++	/* Pre-9xx only supports centered mode */
++	if (!IS_I9XX(pI830)) {
++	    if (strcmp(name, "center"))
++		return FALSE;
++	    ret = 0;
++	} else {
++	    ret = i830_panel_fitting_lookup(name);
++	    if (ret < 0)
++		return FALSE;
++	}
+ 
+ 	dev_priv->fitting_mode = ret;
+ 
+ 
