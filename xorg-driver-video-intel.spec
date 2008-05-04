@@ -21,6 +21,7 @@ BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
+BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
