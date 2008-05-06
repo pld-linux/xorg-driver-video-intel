@@ -16,18 +16,18 @@ BuildRequires:	libdrm-devel >= 2.3
 #BuildRequires:	libdrm-devel >= 2.3.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:  rpmbuild(macros) >= 1.389
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-proto-fontsproto-devel
+BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
-BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.3.0.0
-BuildRequires:  rpmbuild(macros) >= 1.389
 %requires_xorg_xserver_videodrv
 Requires:	xorg-xserver-server >= 1.3.0.0
 Provides:	xorg-driver-video-i810
