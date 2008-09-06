@@ -5,7 +5,7 @@ Version:	2.4.2
 Release:	2
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2 
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 # Source0-md5:	5cd6b3ed57c7e78ab51e9d9266e73fb6
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
@@ -13,10 +13,10 @@ BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libdrm-devel >= 2.3
 # for DRI_MM
-#BuildRequires:	libdrm-devel >= 2.3.1
+#BuildRequires:	libdrm-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
-BuildRequires:  rpmbuild(macros) >= 1.389
+BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-proto-fontsproto-devel
