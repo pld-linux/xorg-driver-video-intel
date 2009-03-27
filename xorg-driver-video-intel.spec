@@ -6,7 +6,7 @@ Release:	3
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-# Source0-md5: b1869be6032c00654f562bd5d6ac9701
+# Source0-md5:	440c014bbd3072b5d379fe1bdb861918
 Patch0:		%{name}-fixes.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
