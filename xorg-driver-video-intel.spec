@@ -11,7 +11,7 @@ URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	libdrm-devel >= 2.4.5
+BuildRequires:	libdrm-devel >= 2.4.6
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
@@ -27,7 +27,7 @@ BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.3.0.0
 %requires_xorg_xserver_videodrv
-Requires:	libdrm >= 2.4.5
+Requires:	libdrm >= 2.4.6
 Requires:	xorg-xserver-libdri >= 1.3.0.0
 Requires:	xorg-xserver-libglx >= 1.3.0.0
 Requires:	xorg-xserver-server >= 1.3.0.0
