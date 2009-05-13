@@ -1,16 +1,16 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.7.0
+Version:	2.7.1
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-# Source0-md5:	5832172ac69b9a066a202e1578a5d3c8
+# Source0-md5:	0eed17138da18ff1fb2b8ab0f076d957
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake
+BuildRequires:	automake >= 1.10.2-2
 BuildRequires:	libdrm-devel >= 2.4.6
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
@@ -22,6 +22,8 @@ BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.3
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.1.3
