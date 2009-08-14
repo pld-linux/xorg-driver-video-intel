@@ -31,8 +31,8 @@ BuildRequires:	xorg-util-util-macros >= 1.1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.6.3
 %requires_xorg_xserver_videodrv
 Requires:	libdrm >= %{libdrm_ver}
-Requires:	xorg-xserver-libdri >= 1.3.0.0
-Requires:	xorg-xserver-libglx >= 1.3.0.0
+Requires:	xorg-xserver-libdri >= 1.6.3
+Requires:	xorg-xserver-libglx >= 1.6.3
 Requires:	xorg-xserver-server >= 1.6.3
 Provides:	xorg-driver-video-i810
 Obsoletes:	X11-driver-i810 < 1:7.0.0
