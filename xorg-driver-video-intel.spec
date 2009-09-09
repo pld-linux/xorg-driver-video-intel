@@ -1,13 +1,13 @@
-%define	libdrm_ver	2.4.12
+%define	libdrm_ver	2.4.13
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.8.1
+Version:	2.8.99.901
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-# Source0-md5:	7c348fcd8032dc952872e5855920b227
+# Source0-md5:	10059edc5382d9bccd80cdfcd2a84281
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
