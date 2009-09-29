@@ -1,4 +1,4 @@
-%define	libdrm_ver	2.4.13
+%define	libdrm_ver	2.4.14
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
