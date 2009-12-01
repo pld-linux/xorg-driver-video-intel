@@ -47,11 +47,15 @@ the i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM, 865G,
 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33, Q33
 and Q35 chipsets.
 
+Requires Kernel Mode Setting (KMS) to be active.
+
 %description -l pl.UTF-8
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
 Obsługuje układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM,
 855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM,
 945GME, G33, Q33 i Q35.
+
+Wymaga aktywnego Kernel Mode Setting (KMS).
 
 %prep
 %setup -q -n xf86-video-intel-%{version}
