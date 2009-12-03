@@ -1,9 +1,10 @@
+%bcond_with	xvmc
 %define	libdrm_ver	2.4.16
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
 Version:	2.9.99.901
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
@@ -14,6 +15,7 @@ BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.10.2-2
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 BuildRequires:	libtool
+BuildRequires:	libxcb-devel >= 1.5
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
@@ -86,11 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING README
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/ch7017.so
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/ch7xxx.so
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/ivch.so
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/sil164.so
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/tfp410.so
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
 %ghost %attr(755,root,root) %{_libdir}/libI810XvMC.so.1
 %attr(755,root,root) %{_libdir}/libIntelXvMC.so.*.*.*
