@@ -18,17 +18,19 @@ BuildRequires:	libtool
 BuildRequires:	libxcb-devel >= 1.5
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
-BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
+BuildRequires:	xcb-util-devel
+BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXvMC-devel
+BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xextproto-devel >= 7.0.3
-BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
 BuildRequires:	xorg-util-util-macros >= 1.1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.6.3
 %requires_xorg_xserver_videodrv
@@ -38,8 +40,8 @@ Requires:	xorg-xserver-libglx >= 1.6.3
 Requires:	xorg-xserver-server >= 1.6.3
 Provides:	xorg-driver-video-i810
 Obsoletes:	X11-driver-i810 < 1:7.0.0
-Obsoletes:	XFree86-i810
 Obsoletes:	XFree86-driver-i810 < 1:7.0.0
+Obsoletes:	XFree86-i810
 Obsoletes:	xorg-driver-video-i810
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -89,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING README
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
-%ghost %attr(755,root,root) %{_libdir}/libI810XvMC.so.1
+%attr(755,root,root) %ghost %{_libdir}/libI810XvMC.so.1
 %attr(755,root,root) %{_libdir}/libIntelXvMC.so.*.*.*
-%ghost %attr(755,root,root) %{_libdir}/libIntelXvMC.so.1
+%attr(755,root,root) %ghost %{_libdir}/libIntelXvMC.so.1
 %{_mandir}/man4/intel.4*
