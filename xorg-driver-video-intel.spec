@@ -1,4 +1,3 @@
-%bcond_with	xvmc
 %define	libdrm_ver	2.4.21
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
@@ -22,18 +21,20 @@ BuildRequires:	xcb-util-devel
 BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
+BuildRequires:	xorg-proto-dri2proto-devel
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
-BuildRequires:	xorg-proto-xextproto-devel >= 7.0.3
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
-BuildRequires:	xorg-util-util-macros >= 1.1.3
+BuildRequires:	xorg-util-util-macros >= 1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.6.3
-%requires_xorg_xserver_videodrv
+%{?requires_xorg_xserver_videodrv}
 Requires:	libdrm >= %{libdrm_ver}
+Requires:	xorg-lib-libpciaccess >= 0.10
 Requires:	xorg-xserver-libdri >= 1.6.3
 Requires:	xorg-xserver-libglx >= 1.6.3
 Requires:	xorg-xserver-server >= 1.6.3
@@ -45,18 +46,24 @@ Obsoletes:	xorg-driver-video-i810
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-X.org video driver for Intel integrated graphics chipsets. It supports
-the i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM, 865G,
-915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33, Q33
-and Q35 chipsets.
+X.org video driver for Intel integrated graphics chipsets. It
+supports:
+- i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM, 865G, 915G,
+  915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33, Q33, G35,
+  Q35, GM45, G45, Q45, G43, G41 chipsets,
+- Pineview-M in Atom N400 series,
+- Pineview-D in Atom D400/D500 series.
 
 Requires Kernel Mode Setting (KMS) to be active.
 
 %description -l pl.UTF-8
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
-Obsługuje układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM,
-855GM, 865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM,
-945GME, G33, Q33 i Q35.
+Obsługuje:
+- układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM,
+  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME,
+  G33, Q33, G35, Q35, GM45, G45, Q45, G43, G41,
+- Pineview-M w procesorach Atom z serii N400,
+- Pineview-D w procesorach Atom z serii D400/D500.
 
 Wymaga aktywnego Kernel Mode Setting (KMS).
 
@@ -65,8 +72,7 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 
 %build
 %configure \
-	--enable-xvmc \
-	--disable-static
+	--disable-silent-rules
 
 %{__make}
 
@@ -87,10 +93,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING README
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
+%doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libI810XvMC.so.1
 %attr(755,root,root) %{_libdir}/libIntelXvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libIntelXvMC.so.1
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
 %{_mandir}/man4/intel.4*
