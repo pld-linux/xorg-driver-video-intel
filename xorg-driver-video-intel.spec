@@ -10,13 +10,14 @@ Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel
 # Source0-md5:	05f187582aeabda57fcd6f2782cfbf8e
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
-#BuildRequires:	autoconf >= 2.57
+#BuildRequires:	autoconf >= 2.60
 #BuildRequires:	automake >= 1.10.2-2
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 #BuildRequires:	libtool
 BuildRequires:	libxcb-devel >= 1.5
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
+BuildRequires:	udev-devel
 BuildRequires:	xcb-util-devel
 BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXvMC-devel
@@ -30,7 +31,7 @@ BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
-BuildRequires:	xorg-util-util-macros >= 1.3
+BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= 1.6.3
 %{?requires_xorg_xserver_videodrv}
 Requires:	libdrm >= %{libdrm_ver}
