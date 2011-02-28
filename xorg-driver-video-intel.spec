@@ -43,7 +43,7 @@ Provides:	xorg-driver-video-i810
 Obsoletes:	X11-driver-i810 < 1:7.0.0
 Obsoletes:	XFree86-driver-i810 < 1:7.0.0
 Obsoletes:	XFree86-i810
-Obsoletes:	xorg-driver-video-i810
+Obsoletes:	xorg-driver-video-i810 < 1.7.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,8 +61,8 @@ Requires Kernel Mode Setting (KMS) to be active.
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
 Obsługuje:
 - układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM,
-  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME,
-  G33, Q33, G35, Q35, GM45, G45, Q45, G43, G41,
+  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33,
+  Q33, G35, Q35, GM45, G45, Q45, G43, G41,
 - Pineview-M w procesorach Atom z serii N400,
 - Pineview-D w procesorach Atom z serii D400/D500.
 
