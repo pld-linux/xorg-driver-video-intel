@@ -11,7 +11,7 @@ Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
-#BuildRequires:	automake >= 1.10.2-2
+#BuildRequires:	automake >= 1:1.10.2-2
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 #BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libxcb-devel >= 1.5
