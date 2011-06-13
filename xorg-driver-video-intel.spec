@@ -3,7 +3,7 @@ Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
 Version:	2.15.0
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
@@ -44,6 +44,7 @@ Obsoletes:	X11-driver-i810 < 1:7.0.0
 Obsoletes:	XFree86-driver-i810 < 1:7.0.0
 Obsoletes:	XFree86-i810
 Obsoletes:	xorg-driver-video-i810 < 1.7.2
+Conflicts:	vbetool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
