@@ -2,12 +2,12 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.15.901
+Version:	2.16.0
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-# Source0-md5:	0c53119892de3aab0dff967fb7c2e09d
+# Source0-md5:	e0406c50a747c358654b93cb23bf7375
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
@@ -15,6 +15,7 @@ BuildRequires:	Mesa-libGL-devel
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 #BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libxcb-devel >= 1.5
+BuildRequires:	pixman-devel
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	udev-devel
@@ -22,7 +23,7 @@ BuildRequires:	xcb-util-devel
 BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
-BuildRequires:	xorg-proto-dri2proto-devel
+BuildRequires:	xorg-proto-dri2proto-devel >= 2.6
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
@@ -62,8 +63,8 @@ Requires Kernel Mode Setting (KMS) to be active.
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
 Obsługuje:
 - układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM,
-  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33,
-  Q33, G35, Q35, GM45, G45, Q45, G43, G41,
+  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME,
+  G33, Q33, G35, Q35, GM45, G45, Q45, G43, G41,
 - Pineview-M w procesorach Atom z serii N400,
 - Pineview-D w procesorach Atom z serii D400/D500.
 
@@ -84,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm $RPM_BUILD_ROOT%{_libdir}/xorg/modules/*/*.la \
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xorg/modules/*/*.la \
 	$RPM_BUILD_ROOT%{_libdir}/lib*XvMC.{la,so}
 
 %clean
