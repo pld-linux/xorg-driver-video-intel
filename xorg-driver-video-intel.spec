@@ -3,7 +3,7 @@ Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
 Version:	2.16.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
@@ -40,6 +40,7 @@ Requires:	xorg-lib-libpciaccess >= 0.10
 Requires:	xorg-xserver-libdri >= 1.6.3
 Requires:	xorg-xserver-libglx >= 1.6.3
 Requires:	xorg-xserver-server >= 1.6.3
+Provides:	xorg-driver-video
 Provides:	xorg-driver-video-i810
 Obsoletes:	X11-driver-i810 < 1:7.0.0
 Obsoletes:	XFree86-driver-i810 < 1:7.0.0
@@ -63,8 +64,8 @@ Requires Kernel Mode Setting (KMS) to be active.
 Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela.
 Obsługuje:
 - układy i810, i810-DC100, i810e, i815, 830M, 845G, 852GM, 855GM,
-  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME,
-  G33, Q33, G35, Q35, GM45, G45, Q45, G43, G41,
+  865G, 915G, 915GM, 945G, 945GM, 965G, 965Q, 946GZ, 965GM, 945GME, G33,
+  Q33, G35, Q35, GM45, G45, Q45, G43, G41,
 - Pineview-M w procesorach Atom z serii N400,
 - Pineview-D w procesorach Atom z serii D400/D500.
 
