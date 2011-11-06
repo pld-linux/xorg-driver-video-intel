@@ -15,7 +15,7 @@ BuildRequires:	Mesa-libGL-devel
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 #BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libxcb-devel >= 1.5
-BuildRequires:	pixman-devel
+BuildRequires:	pixman-devel >= 0.24.0
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	udev-devel
