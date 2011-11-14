@@ -1,3 +1,4 @@
+%bcond_without	sna	SandyBridge's New Acceleration (also for older generations)
 %define	libdrm_ver	2.4.27
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
@@ -77,7 +78,7 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 %build
 %configure \
 	--disable-silent-rules \
-	--enable-sna
+	--%{?with_sna:en}%{!?with_sna:dis}able-sna
 
 %{__make}
 
