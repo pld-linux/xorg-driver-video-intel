@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_with	glamor	Glamor acceleration
 %bcond_with	sna	SandyBridge's New Acceleration (also for older generations)
 #
 %define	libdrm_ver	2.4.31
@@ -21,6 +22,7 @@ URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
 #BuildRequires:	automake >= 1:1.10.2-2
+%{?with_glamor:BuildRequires:	glamor-devel >= 0.3.1}
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 #BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libxcb-devel >= 1.5
@@ -44,6 +46,7 @@ BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
 BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= %{xserver_ver}
 %{?requires_xorg_xserver_videodrv}
+%{?with_glamor:Requires:	glamor >= 0.3.1}
 Requires:	libdrm >= %{libdrm_ver}
 Requires:	xorg-lib-libpciaccess >= 0.10
 Requires:	xorg-xserver-libdri >= %{xserver_ver}
@@ -86,6 +89,7 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 %build
 %configure \
 	--disable-silent-rules \
+	%{?with_glamor:--enable-glamor} \
 	--enable-sna%{!?with_sna:=no}
 
 %{__make}
