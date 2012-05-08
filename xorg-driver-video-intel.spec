@@ -3,6 +3,11 @@
 %bcond_with	sna	SandyBridge's New Acceleration (also for older generations)
 #
 %define	libdrm_ver	2.4.31
+%if %{with sna}
+%define	xserver_ver	1.10
+%else
+%define	xserver_ver	1.6.3
+%endif
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
@@ -37,13 +42,13 @@ BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xf86driproto-devel
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
 BuildRequires:	xorg-util-util-macros >= 1.8
-BuildRequires:	xorg-xserver-server-devel >= 1.6.3
+BuildRequires:	xorg-xserver-server-devel >= %{xserver_ver}
 %{?requires_xorg_xserver_videodrv}
 Requires:	libdrm >= %{libdrm_ver}
 Requires:	xorg-lib-libpciaccess >= 0.10
-Requires:	xorg-xserver-libdri >= 1.6.3
-Requires:	xorg-xserver-libglx >= 1.6.3
-Requires:	xorg-xserver-server >= 1.6.3
+Requires:	xorg-xserver-libdri >= %{xserver_ver}
+Requires:	xorg-xserver-libglx >= %{xserver_ver}
+Requires:	xorg-xserver-server >= %{xserver_ver}
 Provides:	xorg-driver-video
 Provides:	xorg-driver-video-i810
 Obsoletes:	X11-driver-i810 < 1:7.0.0
