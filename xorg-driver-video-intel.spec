@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_with	glamor	Glamor acceleration
-%bcond_with	sna	SandyBridge's New Acceleration (also for older generations)
+%bcond_without	sna	SandyBridge's New Acceleration (also for older generations)
 #
 %define	libdrm_ver	2.4.31
 %if %{with sna}
@@ -12,12 +12,12 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.19.0
-Release:	2
+Version:	2.20.0
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-# Source0-md5:	f397bddfc88d4c9b30b56526c1e02e8e
+# Source0-md5:	070bb866b05a16366bd9bb844c9b91aa
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
@@ -90,6 +90,8 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 %configure \
 	--disable-silent-rules \
 	%{?with_glamor:--enable-glamor} \
+	--with-default-accel=%{?with_sna:sna}%{!?with_sna:uxa} \
+	--enable-uxa \
 	--enable-sna%{!?with_sna:=no}
 
 %{__make}
