@@ -1,3 +1,4 @@
+# NOTE: pixman >= 0.27.1 for glyph cache (enable after stable pixman release)
 #
 # Conditional build:
 %bcond_with	glamor	Glamor acceleration
