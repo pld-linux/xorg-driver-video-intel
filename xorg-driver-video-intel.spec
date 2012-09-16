@@ -32,7 +32,9 @@ BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	udev-devel
 BuildRequires:	xcb-util-devel
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXfixes-devel
+BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-proto-dri2proto-devel >= 2.6
