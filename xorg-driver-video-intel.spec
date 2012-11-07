@@ -5,6 +5,7 @@
 %bcond_without	sna	SandyBridge's New Acceleration (also for older generations)
 #
 %define	libdrm_ver	2.4.39
+%define	pixman_ver	0.28.0
 %if %{with sna}
 %define	xserver_ver	1.10
 %else
@@ -14,7 +15,7 @@ Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
 Version:	2.20.12
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
@@ -27,7 +28,7 @@ BuildRequires:	Mesa-libGL-devel
 BuildRequires:	libdrm-devel >= %{libdrm_ver}
 #BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libxcb-devel >= 1.5
-BuildRequires:	pixman-devel >= 0.24.0
+BuildRequires:	pixman-devel >= %{pixman_ver}
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	udev-devel
@@ -51,6 +52,7 @@ BuildRequires:	xorg-xserver-server-devel >= %{xserver_ver}
 %{?requires_xorg_xserver_videodrv}
 %{?with_glamor:Requires:	glamor >= 0.3.1}
 Requires:	libdrm >= %{libdrm_ver}
+Requires:	pixman >= %{pixman_ver}
 Requires:	xorg-lib-libpciaccess >= 0.10
 Requires:	xorg-xserver-libdri >= %{xserver_ver}
 Requires:	xorg-xserver-libglx >= %{xserver_ver}
