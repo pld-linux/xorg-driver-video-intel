@@ -3,7 +3,7 @@
 %bcond_with	glamor	Glamor acceleration
 %bcond_without	sna	SandyBridge's New Acceleration (also for older generations)
 #
-%define	libdrm_ver	2.4.39
+%define	libdrm_ver	2.4.41
 %define	pixman_ver	0.28.0
 %if %{with sna}
 %define	xserver_ver	1.10
