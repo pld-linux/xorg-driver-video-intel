@@ -13,13 +13,12 @@
 Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
-Version:	2.21.15
-Release:	4
+Version:	2.99.917
+Release:	0.1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
-# Source0-md5:	8b646d257ace8197d6ab4e5ddeb8efb2
-Patch0:		xserver-1.15.patch
+# Source0-md5:	fa196a66e52c0c624fe5d350af7a5e7b
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
@@ -90,7 +89,6 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 
 %prep
 %setup -q -n xf86-video-intel-%{version}
-%patch0 -p1
 
 %build
 %configure \
@@ -120,9 +118,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/intel-virtual-output
+%attr(755,root,root) %{_libdir}/xf86-video-intel-backlight-helper
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libI810XvMC.so.1
 %attr(755,root,root) %{_libdir}/libIntelXvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libIntelXvMC.so.1
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
 %{_mandir}/man4/intel.4*
+%{_mandir}/man4/intel-virtual-output.4*
+%{_datadir}/polkit-1/actions/org.x.xf86-video-intel.backlight-helper.policy
