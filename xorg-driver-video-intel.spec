@@ -35,6 +35,7 @@ BuildRequires:	xcb-util-devel
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXrender-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-proto-dri2proto-devel >= 2.6
@@ -118,9 +119,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/intel-virtual-output
+%attr(755,root,root) %{_libdir}/xf86-video-intel-backlight-helper
 %attr(755,root,root) %{_libdir}/libI810XvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libI810XvMC.so.1
 %attr(755,root,root) %{_libdir}/libIntelXvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libIntelXvMC.so.1
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/intel_drv.so
 %{_mandir}/man4/intel.4*
+%{_mandir}/man4/intel-virtual-output.4*
+%{_datadir}/polkit-1/actions/org.x.xf86-video-intel.backlight-helper.policy
