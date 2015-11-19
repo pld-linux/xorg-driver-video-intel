@@ -20,6 +20,7 @@ Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 # Source0-md5:	fa196a66e52c0c624fe5d350af7a5e7b
 URL:		http://xorg.freedesktop.org/
+Patch0:		%{name}-xserver_1_8_0.patch
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
 #BuildRequires:	automake >= 1:1.10.2-2
@@ -90,6 +91,7 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 
 %prep
 %setup -q -n xf86-video-intel-%{version}
+%patch0 -p1
 
 %build
 %configure \

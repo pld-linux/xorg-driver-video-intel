@@ -1,0 +1,32 @@
+diff --git a/src/compat-api.h b/src/compat-api.h
+index aa93bee..1ca4380 100644
+--- a/src/compat-api.h
++++ b/src/compat-api.h
+@@ -247,3 +247,7 @@ static inline void FreePixmap(PixmapPtr pixmap)
+ #endif
+ 
+ #endif
++
++#if XORG_VERSION_CURRENT >= XORG_VERSION_NUMERIC(1,17,99,0,0)
++#define PixmapSyncDirtyHelper(d, dd) PixmapSyncDirtyHelper(d)
++#endif
+--- xf86-video-intel-2.99.917/src/sna/sna_driver.c~	2014-12-11 14:52:11.000000000 +0100
++++ xf86-video-intel-2.99.917/src/sna/sna_driver.c	2015-11-19 14:43:22.857017010 +0100
+@@ -60,6 +60,7 @@
+ #include <sys/ioctl.h>
+ #include <sys/fcntl.h>
+ #include <sys/poll.h>
++#include <sys/stat.h>
+ #include "i915_drm.h"
+ 
+ #ifdef HAVE_VALGRIND
+--- xf86-video-intel-2.99.917/src/uxa/intel_driver.c~	2015-11-19 16:08:20.073982082 +0100
++++ xf86-video-intel-2.99.917/src/uxa/intel_driver.c	2015-11-19 16:10:07.683783673 +0100
+@@ -41,6 +41,7 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <unistd.h>
++#include <sys/stat.h>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <errno.h>
