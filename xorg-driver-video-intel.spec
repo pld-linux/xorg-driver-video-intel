@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_with	glamor	Glamor acceleration
 %bcond_without	sna	SandyBridge's New Acceleration (also for older generations)
+%bcond_with	dri3	DRI3 support
 #
 %define	libdrm_ver	2.4.41
 %define	pixman_ver	0.28.0
@@ -41,6 +42,7 @@ BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xorg-lib-libXvMC-devel
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-proto-dri2proto-devel >= 2.6
+%{?with_dri3:BuildRequires:	xorg-proto-dri3proto-devel}
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
@@ -105,7 +107,8 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 	%{?with_glamor:--enable-glamor} \
 	--with-default-accel=%{?with_sna:sna}%{!?with_sna:uxa} \
 	--enable-uxa \
-	--enable-sna%{!?with_sna:=no}
+	--enable-sna%{!?with_sna:=no} \
+	%{__enable_disable dri3}
 
 %{__make}
 
