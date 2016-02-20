@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	glamor	Glamor acceleration
 %bcond_without	sna	SandyBridge's New Acceleration (also for older generations)
-%bcond_with	dri3	DRI3 support
+%bcond_without	dri3	DRI3 support
 #
 %define	libdrm_ver	2.4.41
 %define	pixman_ver	0.28.0
@@ -15,7 +15,7 @@ Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
 Version:	2.99.917
-Release:	4
+Release:	5
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
