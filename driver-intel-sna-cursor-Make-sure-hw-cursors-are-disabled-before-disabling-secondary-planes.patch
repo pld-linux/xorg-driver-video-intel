@@ -1,0 +1,14 @@
+diff --git a/src/sna/sna_display.c b/src/sna/sna_display.c
+index d790975..412c192 100644
+--- a/src/sna/sna_display.c
++++ b/src/sna/sna_display.c
+@@ -8081,6 +8081,9 @@ void sna_mode_check(struct sna *sna)
+ 	if (sna->mode.hidden)
+ 		return;
+ 
++        /* make sure the hw cursors are disabled before disabling
++	   the secondary planes which include the cursor plane */
++	sna_hide_cursors(sna->scrn);
+ 	disabled = sna_mode_disable_secondary_planes(sna);
+ 
+ 	/* Validate CRTC attachments and force consistency upon the kernel */
