@@ -1,0 +1,14 @@
+--- xf86-video-intel-2.99.917/src/sna/compiler.h~	2021-11-03 16:47:49.000000000 +0100
++++ xf86-video-intel-2.99.917/src/sna/compiler.h	2021-11-03 16:52:56.773479819 +0100
+@@ -32,7 +32,11 @@
+ #define likely(expr) (__builtin_expect (!!(expr), 1))
+ #define unlikely(expr) (__builtin_expect (!!(expr), 0))
+ #define noinline __attribute__((noinline))
++#if defined __ILP32__ && !defined __x86_64__
++#define force_inline inline
++#else
+ #define force_inline inline __attribute__((always_inline))
++#endif
+ #define fastcall __attribute__((regparm(3)))
+ #define must_check __attribute__((warn_unused_result))
+ #define constant __attribute__((const))
