@@ -1,0 +1,10 @@
+--- xf86-video-intel-2.99.917/src/legacy/i810/i810.h~	2021-11-03 16:25:36.000000000 +0100
++++ xf86-video-intel-2.99.917/src/legacy/i810/i810.h	2021-11-03 16:26:32.570981996 +0100
+@@ -322,6 +322,6 @@
+ extern const OptionInfoRec *I810AvailableOptions(int chipid, int busid);
+ 
+ extern const int I810CopyROP[16];
+-const int I810PatternROP[16];
++extern const int I810PatternROP[16];
+ 
+ #endif /* _I810_H_ */

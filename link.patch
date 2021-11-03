@@ -1,0 +1,16 @@
+--- xf86-video-intel-2.99.917/xvmc/Makefile.am~	2014-08-29 11:33:11.000000000 +0200
++++ xf86-video-intel-2.99.917/xvmc/Makefile.am	2021-11-03 16:31:40.260150655 +0100
+@@ -27,4 +27,4 @@
+ AM_CFLAGS = $(XVMCLIB_CFLAGS) $(XORG_CFLAGS) -I$(top_srcdir)/src -DTRUE=1 -DFALSE=0
+ 
+ libIntelXvMC_la_LDFLAGS = -version-number 1:0:0
+-libIntelXvMC_la_LIBADD = $(XVMCLIB_LIBS) -lpthread
++libIntelXvMC_la_LIBADD = $(XVMCLIB_LIBS) -lpthread -lXv
+--- xf86-video-intel-2.99.917/src/legacy/i810/xvmc/Makefile.am~	2014-08-29 11:33:11.000000000 +0200
++++ xf86-video-intel-2.99.917/src/legacy/i810/xvmc/Makefile.am	2021-11-03 16:39:27.858301036 +0100
+@@ -8,4 +8,4 @@
+ AM_CFLAGS = $(CWARNFLAGS) $(XORG_CFLAGS) $(DRM_CFLAGS) $(DRI1_CFLAGS) -DTRUE=1 -DFALSE=0
+ 
+ libI810XvMC_la_LDFLAGS = -version-number 1:0:0
+-libI810XvMC_la_LIBADD = $(DRI1_LIBS) $(DRM_LIBS) $(XVMCLIB_LIBS)
++libI810XvMC_la_LIBADD = $(DRI1_LIBS) $(DRM_LIBS) $(XVMCLIB_LIBS) -lXv
