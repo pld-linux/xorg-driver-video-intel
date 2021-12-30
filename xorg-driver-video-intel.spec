@@ -22,10 +22,8 @@ Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel
 # Source0-md5:	fa196a66e52c0c624fe5d350af7a5e7b
 URL:		http://xorg.freedesktop.org/
 Patch0:		xorg-driver-video-intel-git.patch
-# Patch0-md5:	2283ea06b64d9c44321e1626190f17ee
+# Patch0-md5:	0fd5075aeaa258ae81fb9707906394fb
 Patch1:		driver-intel-sna-cursor-Make-sure-hw-cursors-are-disabled-before-disabling-secondary-planes.patch
-Patch2:		pc.patch
-Patch3:		gcc10.patch
 Patch4:		link.patch
 Patch5:		ix86.patch
 BuildRequires:	Mesa-libGL-devel
@@ -99,12 +97,11 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 
 %prep
 %setup -q -n xf86-video-intel-%{version}
+%{__rm} src/render_program/exa_wm_yuv_rgb.g[67]a
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
 %patch4 -p1
-%patch5 -p1
+#%patch5 -p1
 
 %build
 %{__aclocal}
