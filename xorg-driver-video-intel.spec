@@ -15,14 +15,14 @@ Summary:	X.org video driver for Intel integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych Intela
 Name:		xorg-driver-video-intel
 Version:	2.99.917
-Release:	13
+Release:	14
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel-%{version}.tar.bz2
 # Source0-md5:	fa196a66e52c0c624fe5d350af7a5e7b
 URL:		http://xorg.freedesktop.org/
 Patch0:		xorg-driver-video-intel-git.patch
-# Patch0-md5:	0fd5075aeaa258ae81fb9707906394fb
+# Patch0-md5:	4af4a121b0c5625ee4725d937b5822ef
 Patch1:		driver-intel-sna-cursor-Make-sure-hw-cursors-are-disabled-before-disabling-secondary-planes.patch
 Patch2:		link.patch
 BuildRequires:	Mesa-libGL-devel
