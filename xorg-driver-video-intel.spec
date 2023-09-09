@@ -22,7 +22,7 @@ Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-intel
 # Source0-md5:	fa196a66e52c0c624fe5d350af7a5e7b
 URL:		http://xorg.freedesktop.org/
 Patch0:		xorg-driver-video-intel-git.patch
-# Patch0-md5:	4af4a121b0c5625ee4725d937b5822ef
+# Patch0-md5:	170b42aa5a6b04c11c67a91757a78516
 Patch1:		driver-intel-sna-cursor-Make-sure-hw-cursors-are-disabled-before-disabling-secondary-planes.patch
 Patch2:		link.patch
 BuildRequires:	Mesa-libGL-devel
