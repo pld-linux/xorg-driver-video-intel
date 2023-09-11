@@ -1,0 +1,111 @@
+--- xf86-video-intel-2.99.917/src/i915_pciids.h.orig	2023-09-09 16:07:15.000000000 +0200
++++ xf86-video-intel-2.99.917/src/i915_pciids.h	2023-09-11 02:07:14.406515377 +0200
+@@ -601,4 +601,42 @@
+ 	INTEL_VGA_DEVICE(0x9A70, info), \
+ 	INTEL_VGA_DEVICE(0x9A78, info)
+ 
++/* ADL-S */
++#define INTEL_ADLS_IDS(info) \
++	INTEL_VGA_DEVICE(0x4680, info), \
++	INTEL_VGA_DEVICE(0x4682, info), \
++	INTEL_VGA_DEVICE(0x4688, info), \
++	INTEL_VGA_DEVICE(0x468A, info), \
++	INTEL_VGA_DEVICE(0x468B, info), \
++	INTEL_VGA_DEVICE(0x4690, info), \
++	INTEL_VGA_DEVICE(0x4692, info), \
++	INTEL_VGA_DEVICE(0x4693, info)
++
++/* ADL-P */
++#define INTEL_ADLP_IDS(info) \
++	INTEL_VGA_DEVICE(0x46A0, info), \
++	INTEL_VGA_DEVICE(0x46A1, info), \
++	INTEL_VGA_DEVICE(0x46A2, info), \
++	INTEL_VGA_DEVICE(0x46A3, info), \
++	INTEL_VGA_DEVICE(0x46A6, info), \
++	INTEL_VGA_DEVICE(0x46A8, info), \
++	INTEL_VGA_DEVICE(0x46AA, info), \
++	INTEL_VGA_DEVICE(0x462A, info), \
++	INTEL_VGA_DEVICE(0x4626, info), \
++	INTEL_VGA_DEVICE(0x4628, info), \
++	INTEL_VGA_DEVICE(0x46B0, info), \
++	INTEL_VGA_DEVICE(0x46B1, info), \
++	INTEL_VGA_DEVICE(0x46B2, info), \
++	INTEL_VGA_DEVICE(0x46B3, info), \
++	INTEL_VGA_DEVICE(0x46C0, info), \
++	INTEL_VGA_DEVICE(0x46C1, info), \
++	INTEL_VGA_DEVICE(0x46C2, info), \
++	INTEL_VGA_DEVICE(0x46C3, info)
++
++/* ADL-N */
++#define INTEL_ADLN_IDS(info) \
++	INTEL_VGA_DEVICE(0x46D0, info), \
++	INTEL_VGA_DEVICE(0x46D1, info), \
++	INTEL_VGA_DEVICE(0x46D2, info)
++
+ #endif /* _I915_PCIIDS_H */
+--- xf86-video-intel-2.99.917/src/intel_module.c.orig	2023-09-09 16:07:15.000000000 +0200
++++ xf86-video-intel-2.99.917/src/intel_module.c	2023-09-11 02:07:12.843026367 +0200
+@@ -158,6 +158,10 @@
+ 	.gen = 0140,
+ };
+ 
++static const struct intel_device_info intel_alderlake_info = {
++	.gen = 0140,
++};
++
+ static const SymTabRec intel_chipsets[] = {
+ 	{PCI_CHIP_I810,				"i810"},
+ 	{PCI_CHIP_I810_DC100,			"i810-dc100"},
+@@ -415,6 +419,41 @@
+ 	{0x9A70, "HD Graphics"},
+ 	{0x9A78, "HD Graphics"},
+ 
++	/* Alderlake S */
++	{0x4680, "HD Graphics 770"},
++	{0x4682, "HD Graphics"},
++	{0x4688, "HD Graphics"},
++	{0x468A, "HD Graphics"},
++	{0x468B, "HD Graphics"},
++	{0x4690, "HD Graphics"},
++	{0x4692, "HD Graphics"},
++	{0x4693, "HD Graphics"},
++
++	/* Alderlake P */
++	{0x46A0, "HD Graphics"},
++	{0x46A1, "HD Graphics"},
++	{0x46A2, "HD Graphics"},
++	{0x46A3, "HD Graphics"},
++	{0x46A6, "Iris Xe"},
++	{0x46A8, "Iris Xe"},
++	{0x46AA, "Iris Xe"},
++	{0x462A, "HD Graphics"},
++	{0x4626, "HD Graphics"},
++	{0x4628, "HD Graphics"},
++	{0x46B0, "HD Graphics"},
++	{0x46B1, "HD Graphics"},
++	{0x46B2, "HD Graphics"},
++	{0x46B3, "HD Graphics"},
++	{0x46C0, "HD Graphics"},
++	{0x46C1, "HD Graphics"},
++	{0x46C2, "HD Graphics"},
++	{0x46C3, "HD Graphics"},
++
++	/* Alderlake N */
++	{0x46D0, "HD Graphics"},
++	{0x46D1, "HD Graphics"},
++	{0x46D2, "HD Graphics"},
++
+ 	/* When adding new identifiers, also update:
+ 	 * 1. intel_identify()
+ 	 * 2. man/intel.man
+@@ -481,6 +488,10 @@
+ 
+ 	INTEL_TGL_12_IDS(&intel_tigerlake_info),
+ 
++	INTEL_ADLS_IDS(&intel_alderlake_info),
++	INTEL_ADLP_IDS(&intel_alderlake_info),
++	INTEL_ADLN_IDS(&intel_alderlake_info),
++
+ 	INTEL_VGA_DEVICE(PCI_MATCH_ANY, &intel_generic_info),
+ #endif
+ 

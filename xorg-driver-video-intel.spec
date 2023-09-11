@@ -25,6 +25,7 @@ Patch0:		xorg-driver-video-intel-git.patch
 # Patch0-md5:	170b42aa5a6b04c11c67a91757a78516
 Patch1:		driver-intel-sna-cursor-Make-sure-hw-cursors-are-disabled-before-disabling-secondary-planes.patch
 Patch2:		link.patch
+Patch3:		alderlake.patch
 BuildRequires:	Mesa-libGL-devel
 #BuildRequires:	autoconf >= 2.63
 #BuildRequires:	automake >= 1:1.10.2-2
@@ -38,7 +39,12 @@ BuildRequires:	rpmbuild(macros) >= 1.389
 BuildRequires:	udev-devel
 BuildRequires:	xcb-util-devel
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXcursor-devel
+BuildRequires:	xorg-lib-libXdamage-devel
+BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXfixes-devel
+BuildRequires:	xorg-lib-libXinerama-devel
+BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xorg-lib-libXvMC-devel
@@ -49,9 +55,11 @@ BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-glproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
+BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xf86driproto-devel
+BuildRequires:	xorg-proto-xineramaproto-devel
 BuildRequires:	xorg-proto-xproto-devel >= 7.0.13
 BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= %{xserver_ver}
@@ -100,6 +108,7 @@ Wymaga aktywnego Kernel Mode Setting (KMS).
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__aclocal}
